@@ -44,6 +44,7 @@ body.tema-harrypotter{
   font-size: 65px; /* grande y vistoso */
   color: var(--texto);
   margin-bottom: 15px;
+  text-shadow: 0 0 10px #00ff88, 0 0 20px #008833;
 }
 
 body.tema-beemail{
@@ -61,15 +62,14 @@ body.tema-beemail{
 /* =========================
    Estructura general
 ========================= */
-  html, body {
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: var(--fondo);
   color: var(--texto);
-  overflow-y: auto; /* permitir scroll vertical */
-}
+  overflow: auto; /* permitir scroll vertical */
 }
 
 /* =========================
@@ -199,6 +199,26 @@ h1 {
   transition: background 0.2s;
 }
 #ordenarZA{
+  margin-left: 5px;
+  padding: 3px 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--boton-fondo);
+  color: var(--boton-texto);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#loginBtn{
+  margin-left: 5px;
+  padding: 3px 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--boton-fondo);
+  color: var(--boton-texto);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#logoutBtn{
   margin-left: 5px;
   padding: 3px 8px;
   border: none;
