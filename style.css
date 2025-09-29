@@ -1,0 +1,260 @@
+
+/* =========================
+   Fuente Harry Potter
+========================= */
+@font-face {
+  font-family: 'HarryP';
+  src: url("./assets/HARRYP__.TTF") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* =========================
+   Variables generales por tema
+========================= */
+body.tema-inosuke {
+  background-image: url("./assets/background\ Inosuke.png");
+  background-position: center;
+  background-size: cover;
+  --fondo: #009797;
+  --texto: #00c3ff;
+  --materia-fondo: rgba(0, 84, 99, 0.247);
+  --materia-texto: #ffffff;
+  --boton-fondo: rgba(0, 3, 3, 0.247);
+  --boton-texto: #fff;
+  --borde-input: rgb(1,1,1);
+  --bg-hover:rgba(0, 97, 114, 0.356);
+  --bs-hover: rgba(0, 59, 70, 0.432);
+}
+
+body.tema-harrypotter{
+  background-image: url("./assets/background\ Slytherin.jpg");
+  background-position: center;
+  background-size: cover;
+  --fondo: #0e2e00;
+  --texto: #d5ffc2;
+  --fondo-input: #051400b6;
+  --materia-fondo: #0d380079;
+  --materia-texto: #d5ffc2;
+  --boton-fondo: #051400b6;
+  --boton-texto: #d5ffc2;
+  --bg-hover:#194e00b4 ;
+  --bs-hover:#0a2000 ;
+}body.tema-harrypotter h1 {
+  font-family: 'HarryP', Arial, sans-serif;
+  font-size: 65px; /* grande y vistoso */
+  color: var(--texto);
+  margin-bottom: 15px;
+}
+
+body.tema-beemail{
+  background-image: url("./assets/Gemini_Generated_Image_xpz178xpz178xpz1.png");
+  background-position: center;
+  background-size: cover;
+  --fondo: #c9d5d6;
+  --texto: #575045;
+  --materia-fondo: #57504542;
+  --materia-texto: #e2e0db;
+  --boton-fondo: #57504593;
+  --boton-texto: #fff;
+}
+
+/* =========================
+   Estructura general
+========================= */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--fondo);
+  color: var(--texto);
+  overflow: hidden; /* quita scroll vertical de toda la página */
+}
+
+/* =========================
+   Encabezados
+========================= */
+h1 {
+  font-size: 48px;
+  color: var(--texto);
+  margin-bottom: 15px;
+  text-align: left;
+  flex-shrink: 0; /* que no se achique */
+}
+
+/* =========================
+   Contenedor de materias
+========================= */
+#contenedorMaterias {
+  flex: 1 1 auto; /* ocupa todo el espacio restante */
+  overflow-y: auto; /* permite scroll solo dentro del contenedor si es necesario */
+}
+
+/* =========================
+   Materias
+========================= */
+.materia {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--materia-fondo);
+  color: var(--materia-texto);
+  padding: 6px 10px;
+  margin: 0;
+  border-radius: 8px;
+  flex-wrap: nowrap;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+/* Efecto hover */
+.materia:hover {
+  box-shadow: 0 6px 15px var(--bs-hover); /* Sombra más fuerte */
+  transform: translateY(-1px); /* Le da un ligero “levantamiento” */
+  background-color: var(--bg-hover); /* Opcional: iluminar el fondo */
+}
+
+.materia label {
+  font-size: 20px;
+  font-weight: bold;
+  width: 220px; 
+  flex-shrink: 0; /* no se achica */
+}
+.materia span {
+  font-size: 18px; /* promedios más visibles */
+  font-weight: bold;
+}
+.materia span[data-tooltip] {
+  position: relative;
+  cursor: help; /* cambia el cursor */
+}
+
+.materia span[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%; /* arriba del span */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.materia span[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+
+/* =========================
+   Inputs
+========================= */
+.inputs-container {
+  display: flex;
+  gap: 5px;
+  flex-wrap: nowrap; 
+  flex-shrink: 1; 
+}
+
+.inputs-container input{
+  border-radius: 10px;
+  flex: 1 1 50px; 
+  min-width: 35px; 
+  padding: 5px;
+  background-color: var(--fondo-input);
+  color: var(--materia-texto);
+  border: 1px solid var(--texto);
+}
+
+/* =========================
+   Botones
+========================= */
+.materia button {
+  margin-left: 5px;
+  padding: 3px 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--boton-fondo);
+  color: var(--boton-texto);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.materia button:hover {
+  background-color: #45a049; /* Podés crear variable también si querés */
+}
+#ordenarAZ{
+  margin-left: 5px;
+  padding: 3px 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--boton-fondo);
+  color: var(--boton-texto);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#ordenarZA{
+  margin-left: 5px;
+  padding: 3px 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--boton-fondo);
+  color: var(--boton-texto);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+/* =========================
+   Promedios
+========================= */
+.materia span {
+  min-width: 100px;
+  margin-left: 10px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.promedio-rojo {
+  color: #e74c3c;
+}
+
+.promedio-amarillo {
+  color: #f1c40f;
+}
+
+.promedio-verde {
+  color: #2ecc71;
+}
+/* =========================
+  Select
+========================= */
+select{
+  border-radius: 10px;
+  flex: 1 1 50px; 
+  min-width: 35px; 
+  padding: 5px;
+  background-color: var(--materia-fondo);
+  color: var(--materia-texto);
+  border: 1px solid var(--texto);
+}
+/* =========================
+  Nota
+========================= */
+.nota {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.nota.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nota.ocultar {
+  opacity: 0;
+  transform: translateY(10px);
+}
